@@ -201,6 +201,8 @@ Set the `BootSplash.storyboard` as launch screen file:
 buildscript {
   ext {
     buildToolsVersion = "30.0.2"
+    androidXSplashScreenVersion = "1.0.0-beta01"
+
     minSdkVersion = 23 // <- AndroidX splashscreen has basic support for 21 (only the background color), so 23 is best
     compileSdkVersion = 31 // <- set at least 31
     targetSdkVersion = 31 // <- set at least 31
@@ -208,20 +210,7 @@ buildscript {
     // …
 ```
 
-2. Then edit your `android/app/build.gradle` file:
-
-```gradle
-dependencies {
-  implementation fileTree(dir: "libs", include: ["*.jar"])
-  //noinspection GradleDynamicVersion
-  implementation "com.facebook.react:react-native:+"  // From node_modules
-
-  implementation "androidx.core:core-splashscreen:1.0.0-beta01" // Add this line
-
-  // …
-```
-
-3. Edit your `android/app/src/main/res/values/styles.xml` file:
+2. Edit your `android/app/src/main/res/values/styles.xml` file:
 
 ```xml
 <resources>
@@ -240,7 +229,7 @@ dependencies {
 </resources>
 ```
 
-4. Edit your `android/app/src/main/AndroidManifest.xml` file:
+3. Edit your `android/app/src/main/AndroidManifest.xml` file:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -272,7 +261,7 @@ dependencies {
 
 ```
 
-5. Finally edit your `android/app/src/main/java/com/yourprojectname/MainActivity.java` file:
+4. Finally edit your `android/app/src/main/java/com/yourprojectname/MainActivity.java` file:
 
 ```java
 import com.facebook.react.ReactActivity;
